@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import AccountPage from "@/components/account/AccountPage";
+import { useRouter } from "next/router";
 
 const signupPage = () => {
+  const router = useRouter();
   const [signupError, setSignupError] = useState(null);
 
   const signup = async (data) => {
@@ -16,6 +18,7 @@ const signupPage = () => {
       });
     console.log(response);
     if (response.status === "200") {
+      router.push(`/mypage/profile`);
     } else {
       setSignupError({
         id: "아이디를 입력",
