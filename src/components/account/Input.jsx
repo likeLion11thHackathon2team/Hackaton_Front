@@ -27,7 +27,7 @@ const Input = ({ formId, placeholder, errorMsg, register }) => {
           > div {
             color: #da7676;
             font-size: 0.75rem;
-            padding: 0 0.5rem;
+            padding: 0.5rem;
           }
         }
       `}</style>
