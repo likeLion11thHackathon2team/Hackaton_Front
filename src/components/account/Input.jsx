@@ -16,7 +16,6 @@ const Input = ({ formId, placeholder, errorMsg, register }) => {
           flex-direction: column;
           justify-content: flex-start;
           width: 100%;
-          background: pink;
           > input {
             width: 100%;
             height: 3.75rem;
