@@ -1,0 +1,46 @@
+.main1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 286px;
+    gap: 50px;
+}
+
+.main2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+.btn {
+    width: 147px;
+    height: 147px;
+    border-radius: 40px;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.btn-order {
+    background: #A7D1CC;
+}
+
+.btn-phone {
+    background: #C2ECE7;
+}
+
+.btn-computer {
+
+    background: #66C9BC;
+}
+
+.btn-etc {
+    background: #3C9E91;
+}
+
+.home_text {
+    font-weight: bold;
+}
+
+.home_img {
+    z-index: 1;
+}
