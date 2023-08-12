@@ -1,4 +1,21 @@
 import React from "react";
+import axios from "axios";
+
+async function Connect() {
+    const response = await axios.post('http://172.30.1.7:8000/requests/',{
+        category: '주문기기',
+        content: '도와주세요',
+        mentiLatitude: 123,
+        mentiLongitude: 456,
+        menti: 1234,
+    })
+    .then((response) => {
+        return response.data;
+    })
+    .catch((error) => {
+        return error;
+    });
+}
 
 function Content() {
     return (
@@ -9,7 +26,7 @@ function Content() {
             <textarea className="content-box"
                 placeholder="입력하기 ..."
             />
-            <button className="btn-request">도움 요청하기</button>
+            <button onClick={()=>{Connect}} className="btn-request">도움 요청하기</button>
         </div>
 
     );

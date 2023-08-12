@@ -73,5 +73,6 @@
     height: 55px;
     border-radius: 30px;
     color: white;
-    outline-style: none;
+    margin-top: 100px;
+    outline: none;
 }
