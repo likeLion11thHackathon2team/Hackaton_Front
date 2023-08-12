@@ -8,7 +8,7 @@
 .main2 {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 30px;
     gap: 50px;
 }
 
@@ -38,9 +38,40 @@
 }
 
 .home_text {
-    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin-top: 5px;
 }
 
 .home_img {
     z-index: 1;
+}
+
+/* content */
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-text {
+    margin: 40px;
+}
+
+.content-box {
+    width: 339px;
+    height: 241px;
+    border-radius: 5px;
+    outline-color: #CACACA;
+}
+
+.btn-request {
+    background: #089885;
+    width: 339px;
+    height: 55px;
+    border-radius: 30px;
+    color: white;
+    outline-style: none;
 }
