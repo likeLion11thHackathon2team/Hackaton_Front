@@ -2,12 +2,12 @@ import axios from "axios";
 import React, { useState } from "react";
 import AccountPage from "@/components/account/AccountPage";
 
-const login = () => {
-  const [loginError, setLoginError] = useState(null);
+const signupPage = () => {
+  const [signupError, setSignupError] = useState(null);
 
-  const login = async (data) => {
+  const signup = async (data) => {
     const response = await axios
-      .post("/api/login", data)
+      .post("/api/signup", data)
       .then((response) => {
         return response.data;
       })
@@ -17,7 +17,7 @@ const login = () => {
     console.log(response);
     if (response.status === "200") {
     } else {
-      setLoginError({
+      setSignupError({
         id: "아이디를 입력",
         password: "비밀번호를 올바르게 입력해주세요",
       });
@@ -25,8 +25,8 @@ const login = () => {
   };
 
   return (
-    <AccountPage pageType={"login"} error={loginError} submitEvent={login} />
+    <AccountPage pageType={"signup"} error={signupError} submitEvent={signup} />
   );
 };
 
-export default login;
+export default signupPage;
