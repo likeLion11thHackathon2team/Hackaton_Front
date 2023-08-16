@@ -8,12 +8,15 @@ function Content() {
     const router = useRouter();
     const [content, setContent] = useState();
     const geolocation = useGeolocation();
+    const [mentiLatitude, setMentiLatitude] = useState('')
+    const [mentiLongtitude, setMentiLongtitude] = useState('');
+
     async function Connect() {
-        const response = await axios.post('http://172.30.1.7:8000/requests/',{
+        const response = await axios.post('http://172.30.1.7:8000/requests/menti/',{
             category: '주문기기',
             content: content,
-            mentiLatitude: 123,
-            mentiLongitude: 456,
+            mentiLatitude: mentiLatitude,
+            mentiLongitude: mentiLongtitude,
             menti: 1,
         })
         .then((response) => {
@@ -23,16 +26,17 @@ function Content() {
             return error;
         });
     }
-    useEffect(()=>{    
+
+    useEffect(() => {    
         navigator.geolocation.getCurrentPosition(function(pos) {
-        console.log('llll',pos);
-        var latitude = pos.coords.latitude;
-        var longitude = pos.coords.longitude;
-        alert("현재 위치는 : " + latitude + ", "+ longitude);
-    },(error)=>console.log('실패',error));
-        console.log(navigator.geolocation);
-    }, []);
-    
+            var latitude = pos.coords.latitude;
+            var longitude = pos.coords.longitude;
+            console.log("현재 위치는 :" + latitude + "," + longitude);
+            setMentiLatitude(latitude);
+            setMentiLongtitude(longitude);
+            // console.log("현재 위치는 :" + mentiLatitude+","+mentiLongtitude);
+        });
+    });
 
     return (
         <div className="center">
@@ -41,10 +45,11 @@ function Content() {
             <div className="content-text">어떤 부분에서 어려움을 겼으셨나요?</div>
             <textarea className="content-box"
                 placeholder="입력하기 ..."
+                onChange={()=>{}}
             />
             <button onClick={()=>{Connect()}} className="btn-request">도움 요청하기</button>
+            <button onClick={()=>{}} className="btn-quit">요청 취소하기</button>
         </div>
-
     );
 }
 

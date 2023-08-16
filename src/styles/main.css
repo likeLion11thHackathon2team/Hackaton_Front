@@ -77,3 +77,24 @@
     margin-top: 100px;
     border: none;
 }
+
+.btn-quit {
+    background: #089885;
+    width: 339px;
+    height: 55px;
+    border-radius: 30px;
+    color: white;
+    margin-top: 10px;
+    border: none;
+    transition: all 1s;
+}
+
+.btn-clicked {
+    background: #979797;
+    width: 339px;
+    height: 55px;
+    border-radius: 30px;
+    color: white;
+    margin-top: 10px;
+    border: none;
+}
