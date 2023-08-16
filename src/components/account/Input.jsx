@@ -35,6 +35,7 @@ const Input = ({
           > div.label {
             font-size: 1rem;
             margin-bottom: 0.5rem;
+            color: #635c5c;
           }
 
           > div.error {
