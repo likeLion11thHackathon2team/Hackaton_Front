@@ -66,14 +66,16 @@ const requestDetail = () => {
   return (
     <>
       <div>
-        <Request
-          key={RequestList[requestId].id}
-          category={RequestList[requestId].category}
-          mentiName={RequestList[requestId].mentiName}
-          dist={RequestList[requestId].dist}
-          content={RequestList[requestId].content}
-          onClick={() => onClick(RequestList[requestId].id)}
-        ></Request>
+        {router.query.id && (
+          <Request
+            key={RequestList[requestId].id}
+            category={RequestList[requestId].category}
+            mentiName={RequestList[requestId].mentiName}
+            dist={RequestList[requestId].dist}
+            content={RequestList[requestId].content}
+            onClick={() => onClick(RequestList[requestId].id)}
+          ></Request>
+        )}
       </div>
       <div>
         <Map
