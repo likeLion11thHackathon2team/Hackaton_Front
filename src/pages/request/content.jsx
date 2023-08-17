@@ -3,7 +3,6 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import useGeolocation from "react-hook-geolocation";
 
-
 function Content() {
     const router = useRouter();
     const [content, setContent] = useState();
@@ -45,10 +44,10 @@ function Content() {
             var longitude = pos.coords.longitude;
             setMentiLatitude(latitude);
             setMentiLongtitude(longitude);
-            console.log("현재 위치는 :" + mentiLatitude + ","+ mentiLongtitude);
+            // console.log("현재 위치는 :" + mentiLatitude + ","+ mentiLongtitude);
         });
     });
-    
+
     return (
         <div className="center">
             <div className="content-text">주문기기 관련 요청</div>
@@ -56,10 +55,17 @@ function Content() {
             <div className="content-text">어떤 부분에서 어려움을 겼으셨나요?</div>
             <textarea className="content-box"
                 placeholder="입력하기 ..."
-                onChange={()=>{setContent(content)}}
+                onChange={(e) => {setContent(e.target.value)}}
             />
-            <button onClick={()=>{Connect()}} className="btn-request">도움 요청하기</button>
-            <button onClick={()=>{ConnectQuit()}} className="btn-quit">요청 취소하기</button>
+            <button onClick={()=>{
+                Connect();
+                setContent(content);
+                window.location.href="find";
+                }} className="btn-request">도움 요청하기</button>
+            <button onClick={()=>{
+                ConnectQuit();
+                alert("요청이 취소되었습니다.")
+                }} className="btn-quit">요청 취소하기</button>
         </div>
     );
 }

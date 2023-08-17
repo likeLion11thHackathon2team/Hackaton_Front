@@ -29,14 +29,17 @@ function Request() {
             </nav>
             <div className="imgwrapper">
                 <img 
+                    onClick={() => {window.location.href="request";}}
                     src="/requestimg/bar_circle_word.svg"
                     className="nav-word"
                 />
                 <img 
+                    onClick={() => {window.location.href=""}}
                     src="/requestimg/bar_star_word.svg"
                     className="nav-word"
                 />
                 <img 
+                    onClick={() => {window.location.href=""}}
                     src="/requestimg/bar_box_word.svg"
                     className="nav-word"
                 />
