@@ -103,3 +103,42 @@
     z-index: -1;
     width: 479px;
 }
+
+/*하단 bar*/
+
+nav {
+    overflow: hidden;
+    border-top: 2px solid grey;
+}
+
+nav > div {
+    text-align: center;
+    float: left;
+    width: 33%;
+    height: 60px;
+    line-height: 90px;
+}
+
+.wrapper {
+    margin-top: 200px;
+}
+
+.img-wrapper {
+    overflow: hidden;
+}
+
+.nav-item {
+    filter: invert(64%) sepia(3%) saturate(16%) hue-rotate(15deg) brightness(95%) contrast(80%);
+}
+
+.active {
+    filter: invert(53%) sepia(46%) saturate(494%) hue-rotate(123deg) brightness(92%) contrast(87%);
+}
+
+.nav-word {
+    /* text-align: center; */
+    /* float: left; */
+    width: 33%;
+    height: 11px;
+    line-height: 90px;
+}
