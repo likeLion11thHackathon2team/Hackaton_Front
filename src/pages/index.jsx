@@ -1,7 +1,7 @@
-export default function App() {
-  return (
-    <>
-      <div>Hello</div>
-    </>
-  );
-}
+import React from "react";
+
+const index = () => {
+  return <div>첫화면</div>;
+};
+
+export default index;
