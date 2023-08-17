@@ -89,12 +89,17 @@
     transition: all 1s;
 }
 
-.btn-clicked {
-    background: #979797;
-    width: 339px;
-    height: 55px;
-    border-radius: 30px;
-    color: white;
-    margin-top: 10px;
-    border: none;
+/* find */
+
+.find-word {
+    position: absolute;
+    margin-top: 440px;
+    margin-left: 125px;
+    z-index: 1;
+}
+
+.find-background {
+    position: relative;
+    z-index: -1;
+    width: 479px;
 }
