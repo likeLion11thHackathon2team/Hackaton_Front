@@ -1,9 +1,9 @@
 import Input from "@/components/account/Input";
-import RadioButton from "@/components/form/RadioButton";
 import RadioGroup from "@/components/form/RadioGroup";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const profile = () => {
   const {
@@ -15,23 +15,90 @@ const profile = () => {
   const [pickedGender, setPickedGender] = useState(null);
   const [isMento, setIsMento] = useState(null);
 
-  const submit = (data) => {
-    console.log(data);
+  const [userProfile, setUserProfile] = useState(null);
+  const [userProfileBinary, setUserProfileBinary] = useState(null);
+
+  const convertPhoneNumber = (target) => {
+    const phoneNumber = target
+      .replace(/[^0-9]/g, "")
+      .replace(
+        /(^02.{0}|^01.{1}|[0-9]{3,4})([0-9]{3,4})([0-9]{4})/g,
+        "$1-$2-$3"
+      );
+    return phoneNumber;
   };
+
+  const submit = useCallback(
+    async (data) => {
+      const response = await axios
+        .patch(
+          "/mypage/profile",
+          {
+            photo: FormData,
+            name: data.name,
+            phoneNumber: convertPhoneNumber(data.phoneNumber),
+            email: data.email,
+            gender: pickedGender,
+            isMento: isMento === "mento" ? true : false,
+          },
+          {
+            headers: { "content-type": "multipart/form-data" },
+            transformRequest: (data, headers) => {
+              return data;
+            },
+          }
+        )
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          return error;
+        });
+
+      if (response.status === "200") {
+        router.push(`/mypage`);
+      }
+    },
+    [pickedGender, isMento]
+  );
 
   return (
     <>
       <article>
         <section>프로필 세팅</section>
         <section className="photo">
-          <div>
-            <Image
-              src={`/profile/${pickedGender ?? "female"}.svg`}
-              width={250}
-              height={250}
-            />
+          <div className={`photo-circle`}>
+            {userProfile ? (
+              ""
+            ) : (
+              <Image
+                src={`/profile/${pickedGender ?? "female"}.svg`}
+                width={250}
+                height={250}
+                // alt="profile"
+              />
+            )}
           </div>
-          <div className={`button`}>사진 업로드</div>
+
+          <div className={`button`}>
+            <input
+              type="file"
+              accept=".jpg, .png"
+              className="register-photo"
+              onChange={(e) => {
+                const file = e.target.files[0];
+                const formData = new FormData();
+                formData.append("profile", file);
+                setUserProfile(file);
+                const fileReader = new FileReader();
+                fileReader.readAsDataURL(file);
+                fileReader.onload = function (e) {
+                  setUserProfileBinary(e.target.result);
+                };
+              }}
+            ></input>
+            사진 업로드
+          </div>
         </section>
         <section className="form">
           <form onSubmit={handleSubmit(submit)}>
@@ -51,6 +118,7 @@ const profile = () => {
                 register={register}
                 label={"휴대폰 전화번호"}
                 height={"2.25rem"}
+                type={"number"}
               />
               <Input
                 formId={"email"}
@@ -111,6 +179,16 @@ const profile = () => {
           > section.photo {
             align-items: center;
             gap: 2rem;
+
+            > div.photo-circle {
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background: url(${userProfileBinary});
+              width: 17rem;
+              height: 17rem;
+            }
             > div.button {
               display: flex;
               justify-content: center;
@@ -124,6 +202,14 @@ const profile = () => {
               color: white;
               font-size: 0.875rem;
               cursor: pointer;
+              position: relative;
+
+              > input {
+                opacity: 0;
+                position: absolute;
+                width: 100%;
+                cursor: pointer;
+              }
             }
           }
 
