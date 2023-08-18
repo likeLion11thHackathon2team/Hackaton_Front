@@ -1,15 +1,20 @@
 import FinishedRequest from "./finishedRequest";
 import React from "react";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 
 const RequestPage = () => {
   // 리퀘스트 리스트 리스트 백에서 받기
-  const [userId, setUserId] = useState(0); // 사용자 ID 가져와야함
+  const [userId, setUserId] = useState(null); // 사용자 ID 가져와야함
   const [list, setList] = useState(null);
+
+  useEffect(() => {
+    setUserId(localStorage.getItem("userId"));
+  }, []);
 
   const getList = async () => {
     const response = await axios
-      .get("/requests/record/${userId}/")
+      .get(`/requests/record/${userId}/`)
       .then((response) => {
         return response.data;
       })
@@ -57,7 +62,7 @@ const RequestPage = () => {
         <span>내게 들어온 요청</span>
       </div>
       <div className="request-list">
-        {RequestList.map((item) => (
+        {list.map((item) => (
           <FinishedRequest
             key={item.id}
             category={item.category}
