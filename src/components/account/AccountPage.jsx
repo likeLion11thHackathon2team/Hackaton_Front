@@ -50,6 +50,7 @@ const AccountPage = ({ pageType, error, submitEvent }) => {
                   placeholder={"비밀번호"}
                   errorMsg={error?.password ?? null}
                   register={register}
+                  type={"password"}
                 ></Input>
                 {pageType === "signup" && (
                   <Input
@@ -57,6 +58,7 @@ const AccountPage = ({ pageType, error, submitEvent }) => {
                     placeholder={"비밀번호 확인"}
                     errorMsg={error?.password2 ?? null}
                     register={register}
+                    type={"password"}
                   ></Input>
                 )}
               </div>

@@ -32,7 +32,7 @@ const profile = () => {
     async (data) => {
       const response = await axios
         .patch(
-          `${process.env.NEXT_PUBLIC_API}/mypage/profile`,
+          `${process.env.NEXT_PUBLIC_API}mypage/profile`,
           {
             photo: FormData,
             name: data.name,

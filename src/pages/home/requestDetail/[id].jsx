@@ -110,7 +110,7 @@ const requestDetail = () => {
 
   async function Connect() {
     const response = await axios
-      .post(`${process.env.NEXT_PUBLIC_API}/requests/menti/`, {
+      .post(`${process.env.NEXT_PUBLIC_API}requests/menti/`, {
         mentoLatitude: mentoLatitude,
         mentoLongitude: mentoLongitude,
       })

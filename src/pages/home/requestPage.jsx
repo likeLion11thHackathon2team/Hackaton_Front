@@ -55,7 +55,7 @@ const RequestPage = () => {
 
   const getList = async () => {
     const response = await axios
-      .get(`${process.env.NEXT_PUBLIC_API}/request/mento/`)
+      .get(`${process.env.NEXT_PUBLIC_API}request/mento/`)
       .then((response) => {
         return response.data;
       })
@@ -88,7 +88,7 @@ const RequestPage = () => {
 
   async function Connect() {
     const response = await axios
-      .post(`${process.env.NEXT_PUBLIC_API}/requests/menti/`, {
+      .post(`${process.env.NEXT_PUBLIC_API}requests/menti/`, {
         mentiLatitude: mentiLatitude,
         mentiLongitude: mentiLongtitude,
       })

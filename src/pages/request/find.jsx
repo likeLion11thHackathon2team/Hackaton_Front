@@ -7,7 +7,7 @@ function Find() {
 
   async function ConnectQuit() {
     const response = await axios
-      .delete(`${process.env.NEXT_PUBLIC_API}/requests/${router.query.id}`)
+      .delete(`${process.env.NEXT_PUBLIC_API}requests/${router.query.id}`)
       .then((response) => {
         return response.data;
       })

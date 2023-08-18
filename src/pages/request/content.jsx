@@ -11,7 +11,7 @@ function Content() {
 
   async function Connect() {
     const response = await axios
-      .post(`${process.env.NEXT_PUBLIC_API}/requests/menti/`, {
+      .post(`${process.env.NEXT_PUBLIC_API}requests/menti/`, {
         category: router.query.category,
         content: content,
         mentiLatitude: mentiLatitude,
