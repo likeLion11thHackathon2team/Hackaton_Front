@@ -4,18 +4,52 @@ const Request = ({ category, mentiName, dist, content }) => {
   return (
     <>
       <RequestDiv>
-        <span>{category}</span>
-        <span>
-          {mentiName}, {dist} KM
-        </span>
+        <div className="title">
+          <div className="title__category">
+            <span>{category}</span>
+          </div>
+          <div className="title__subinfo">
+            <span>
+              {mentiName}, {dist} KM
+            </span>
+          </div>
+        </div>
+        <div className="content">{content}</div>
       </RequestDiv>
-      <div>{content}</div>
     </>
   );
 };
 
 const RequestDiv = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 15vh;
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 5px 10px;
+  background-color: #f5f5f5;
+  font-weight: bold;
+  border-radius: 20px;
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__category {
+      background-color: #c2ece7;
+      padding: 5px;
+      border-radius: 20px;
+    }
+
+    &__subinfo {
+      color: #635c5c;
+    }
+  }
+
+  .content {
+    padding: 10px;
+  }
 `;
 
 export default Request;
