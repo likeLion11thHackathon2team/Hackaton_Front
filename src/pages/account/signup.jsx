@@ -17,13 +17,11 @@ const signupPage = () => {
         return error;
       });
     console.log(response);
-    if (response.status === "200") {
+    if (response.status === "200" || response.status === "201") {
+      alert("회원가입에 성공했습니다.");
       router.push(`/mypage/profile`);
     } else {
-      setSignupError({
-        id: "아이디를 입력",
-        password: "비밀번호를 올바르게 입력해주세요",
-      });
+      alert("회원가입에 실패했습니다.");
     }
   };
 

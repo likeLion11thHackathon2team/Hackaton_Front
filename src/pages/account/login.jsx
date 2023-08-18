@@ -17,16 +17,17 @@ const login = () => {
         return error;
       });
 
-    if (response.status === "200") {
+    if (response.status === "200" || response.status === "201") {
       router.push("/mypage");
       localStorage.setItem("userId", response.name);
       localStorage.setItem("userName", response.userId);
       localStorage.setItem("userPhoto", response.photoUrl);
     } else {
-      setLoginError({
-        id: "아이디를 입력",
-        password: "비밀번호를 올바르게 입력해주세요",
-      });
+      alert("로그인에 실패했습니다.");
+      // setLoginError({
+      //   id: "아이디를 입력",
+      //   password: "비밀번호를 올바르게 입력해주세요",
+      // });
     }
   };
 
