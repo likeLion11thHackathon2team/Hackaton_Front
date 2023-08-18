@@ -9,7 +9,7 @@ const signupPage = () => {
 
   const signup = async (data) => {
     const response = await axios
-      .post("/api/signup", data)
+      .post(`${process.env.NEXT_PUBLIC_API}/api/signup`, data)
       .then((response) => {
         return response.data;
       })

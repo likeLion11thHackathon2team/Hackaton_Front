@@ -9,7 +9,7 @@ const login = () => {
 
   const login = async (data) => {
     const response = await axios
-      .post("/api/login", data)
+      .post(`${process.env.NEXT_PUBLIC_API}/api/login`, data)
       .then((response) => {
         return response.data;
       })
