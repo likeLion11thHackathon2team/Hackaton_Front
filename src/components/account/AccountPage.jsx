@@ -40,7 +40,7 @@ const AccountPage = ({ pageType, error, submitEvent }) => {
             <form onSubmit={handleSubmit(submitEvent)}>
               <div>
                 <Input
-                  formId={"id"}
+                  formId={pageType === "signup" ? "username" : "id"}
                   placeholder={"아이디"}
                   errorMsg={error?.id ?? null}
                   register={register}
