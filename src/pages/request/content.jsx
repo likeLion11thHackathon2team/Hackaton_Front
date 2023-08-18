@@ -5,10 +5,9 @@ import { useRouter } from "next/router";
 function Content() {
   const router = useRouter();
   const [content, setContent] = useState();
-  const geolocation = useGeolocation();
   const [mentiLatitude, setMentiLatitude] = useState("");
   const [mentiLongtitude, setMentiLongtitude] = useState("");
-  const id = localStorage.getItem("userId");
+  const [id, setId] = useState(null);
 
   async function Connect() {
     const response = await axios
@@ -21,7 +20,6 @@ function Content() {
       })
       .then((response) => {
         window.location.href = `/request/find?request=${id}`;
-        // router.push()
         return response.data;
       })
       .catch((error) => {
@@ -35,9 +33,9 @@ function Content() {
       var longitude = pos.coords.longitude;
       setMentiLatitude(latitude);
       setMentiLongtitude(longitude);
-      // console.log("현재 위치는 :" + mentiLatitude + ","+ mentiLongtitude);
     });
-  });
+    setId(localStorage.getItem("userId"));
+  }, []);
 
   return (
     <div className="center">
@@ -54,7 +52,6 @@ function Content() {
       <button
         onClick={() => {
           Connect();
-          // setContent(content);
         }}
         className="btn-request"
       >
