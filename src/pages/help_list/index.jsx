@@ -2,6 +2,7 @@ import FinishedRequest from "./finishedRequest";
 import React from "react";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 const RequestPage = () => {
   // 리퀘스트 리스트 리스트 백에서 받기
@@ -14,7 +15,7 @@ const RequestPage = () => {
 
   const getList = async () => {
     const response = await axios
-      .get(`/requests/record/${userId}/`)
+      .get(`${process.env.NEXT_PUBLIC_API}/requests/record/${userId}/`)
       .then((response) => {
         return response.data;
       })
@@ -62,15 +63,16 @@ const RequestPage = () => {
         <span>내게 들어온 요청</span>
       </div>
       <div className="request-list">
-        {list.map((item) => (
-          <FinishedRequest
-            key={item.id}
-            category={item.category}
-            mentiName={item.mentiName}
-            content={item.content}
-            acceptTime={item.acceptTime}
-          ></FinishedRequest>
-        ))}
+        {list &&
+          list.map((item) => (
+            <FinishedRequest
+              key={item.id}
+              category={item.category}
+              mentiName={item.mentiName}
+              content={item.content}
+              acceptTime={item.acceptTime}
+            ></FinishedRequest>
+          ))}
       </div>
     </RequestPageDiv>
   );

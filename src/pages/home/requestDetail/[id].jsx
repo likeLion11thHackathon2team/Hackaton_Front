@@ -14,7 +14,7 @@ const requestDetail = () => {
 
   const getList = async () => {
     const response = await axios
-      .get("requests/mento/")
+      .get(`${process.env.NEXT_PUBLIC_API}requests/mento/`)
       .then((response) => {
         return response.data;
       })
@@ -110,7 +110,7 @@ const requestDetail = () => {
 
   async function Connect() {
     const response = await axios
-      .post("http://192.168.160.83/requests/menti/", {
+      .post(`${process.env.NEXT_PUBLIC_API}/requests/menti/`, {
         mentoLatitude: mentoLatitude,
         mentoLongitude: mentoLongitude,
       })

@@ -2,24 +2,29 @@ import styled from "styled-components";
 
 const FinishedRequest = ({ category, mentiName, content, acceptTime }) => {
   return (
-    <RequestDiv>
-      <div className="title">
-        <div className="title__category">
-          <span>{category}</span>
+    category &&
+    mentiName &&
+    content &&
+    acceptTime && (
+      <RequestDiv>
+        <div className="title">
+          <div className="title__category">
+            <span>{category}</span>
+          </div>
+          <div className="title__subinfo">
+            <span>
+              {mentiName}, {acceptTime.substring(0, 10)} &nbsp;
+              {Number(acceptTime.substring(11, 13)) >= 12 ? "PM" : "AM"} &nbsp;
+              {acceptTime.substring(15, 19)}
+            </span>
+          </div>
         </div>
-        <div className="title__subinfo">
-          <span>
-            {mentiName}, {acceptTime.substring(0, 10)} &nbsp;
-            {Number(acceptTime.substring(11, 13)) >= 12 ? "PM" : "AM"} &nbsp;
-            {acceptTime.substring(15, 19)}
-          </span>
+        <div className="content">{content}</div>
+        <div className="finish-content">
+          <span>완료</span>
         </div>
-      </div>
-      <div className="content">{content}</div>
-      <div className="finish-content">
-        <span>완료</span>
-      </div>
-    </RequestDiv>
+      </RequestDiv>
+    )
   );
 };
 

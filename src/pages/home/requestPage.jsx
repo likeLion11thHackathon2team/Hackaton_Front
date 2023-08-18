@@ -50,23 +50,22 @@ const RequestPage = () => {
   //   },
   // ];
 
-  list.forEach((item, i) => {
-    item.id = i;
-  });
-
   // 리퀘스트 리스트 리스트 백에서 받기
   const [list, setList] = useState(null);
 
   const getList = async () => {
     const response = await axios
-      .get("/request/mento/")
+      .get(`${process.env.NEXT_PUBLIC_API}/request/mento/`)
       .then((response) => {
         return response.data;
       })
       .catch((error) => {
         return error;
       });
-    setList(response.list);
+    const _list = response.list?.forEach((item, i) => {
+      item.id = i;
+    });
+    setList(_list);
   };
 
   useEffect(() => {
@@ -89,7 +88,7 @@ const RequestPage = () => {
 
   async function Connect() {
     const response = await axios
-      .post("http://192.168.160.83/requests/menti/", {
+      .post(`${process.env.NEXT_PUBLIC_API}/requests/menti/`, {
         mentiLatitude: mentiLatitude,
         mentiLongitude: mentiLongtitude,
       })
@@ -111,20 +110,21 @@ const RequestPage = () => {
     <RequestPageDiv>
       <div className="page-title">
         <span>내게 들어온 요청</span> &nbsp;
-        <span className="request-count">{list.length}</span>
+        <span className="request-count">{list?.length}</span>
       </div>
       <div className="request-list">
-        {list.map((item) => (
-          <div key={item.id} onClick={() => onClick(item.id)}>
-            <Request
-              key={item.id}
-              category={item.category}
-              mentiName={item.mentiName}
-              distance={item.distance}
-              content={item.content}
-            />
-          </div>
-        ))}
+        {list &&
+          list.map((item) => (
+            <div key={item.id} onClick={() => onClick(item.id)}>
+              <Request
+                key={item.id}
+                category={item.category}
+                mentiName={item.mentiName}
+                distance={item.distance}
+                content={item.content}
+              />
+            </div>
+          ))}
       </div>
     </RequestPageDiv>
   );
