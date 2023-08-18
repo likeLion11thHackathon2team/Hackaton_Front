@@ -1,7 +1,7 @@
 .main1 {
     display: flex;
     justify-content: center;
-    margin-top: 286px;
+    margin-top: 200px;
     gap: 50px;
 }
 
@@ -65,6 +65,7 @@
     height: 241px;
     border-radius: 5px;
     outline-color: #CACACA;
+    resize: none;
 }
 
 .btn-request {
@@ -73,5 +74,89 @@
     height: 55px;
     border-radius: 30px;
     color: white;
-    outline-style: none;
+    margin-top: 100px;
+    border: none;
+}
+
+.btn-quit {
+    background: #089885;
+    width: 339px;
+    height: 55px;
+    border-radius: 30px;
+    color: white;
+    margin-left: 70px;
+    margin-top: 700px;
+    border: none;
+    z-index: 1;
+    position: absolute;
+}
+
+/* find */
+
+.find-word {
+    position: absolute;
+    margin-top: 440px;
+    margin-left: 125px;
+}
+
+.find-background {
+    position: relative;
+    z-index: -1;
+    width: 479px;
+}
+
+/*하단 bar*/
+
+nav {
+    overflow: hidden;
+    border-top: 2px solid grey;
+}
+
+nav > div {
+    text-align: center;
+    float: left;
+    width: 33%;
+    height: 60px;
+    line-height: 90px;
+}
+
+.wrapper {
+    margin-top: 180px;
+}
+
+.img-wrapper {
+    overflow: hidden;
+}
+
+.nav-item {
+    filter: invert(64%) sepia(3%) saturate(16%) hue-rotate(15deg) brightness(95%) contrast(80%);
+}
+
+.active {
+    filter: invert(53%) sepia(46%) saturate(494%) hue-rotate(123deg) brightness(92%) contrast(87%);
+}
+
+.nav-word {
+    width: 33%;
+    height: 11px;
+    line-height: 90px;
+}
+
+/*header*/
+
+.logo {
+    margin-left: 24px;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+}
+
+.profile {
+    margin-top: -30px;
+    margin-left: 400px;
+    display: flex;
+    flex-direction: column;
+    top: 0;
 }
