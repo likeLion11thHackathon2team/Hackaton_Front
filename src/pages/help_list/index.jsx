@@ -15,7 +15,7 @@ const RequestPage = () => {
 
   const getList = async () => {
     const response = await axios
-      .get(`${process.env.NEXT_PUBLIC_API}requests/record/${userId}/`)
+      .get(`${process.env.NEXT_PUBLIC_API}requests/record/${userId ?? 1}/`)
       .then((response) => {
         return response.data;
       })

@@ -6,6 +6,10 @@ import axios from "axios";
 
 const RequestPage = () => {
   const router = useRouter();
+
+  // 멘티 위도 경도 백으로 보내기
+  const [mentiLatitude, setMentiLatitude] = useState(13);
+  const [mentiLongtitude, setMentiLongtitude] = useState(131);
   const onClick = (id) => {
     router.push(
       {
@@ -55,14 +59,19 @@ const RequestPage = () => {
 
   const getList = async () => {
     const response = await axios
-      .get(`${process.env.NEXT_PUBLIC_API}request/mento/`)
+      .post(`${process.env.NEXT_PUBLIC_API}request/mento/`, {
+        mentoLatitude: mentiLatitude,
+        mentoLongitude: mentiLongtitude,
+      })
       .then((response) => {
         return response.data;
       })
       .catch((error) => {
         return error;
       });
-    const _list = response.list?.forEach((item, i) => {
+    const _list = JSON.parse(JSON.stringify(response.list));
+
+    _list?.forEach((item, i) => {
       item.id = i;
     });
     setList(_list);
@@ -71,10 +80,6 @@ const RequestPage = () => {
   useEffect(() => {
     getList();
   }, []);
-
-  // 멘티 위도 경도 백으로 보내기
-  const [mentiLatitude, setMentiLatitude] = useState(13);
-  const [mentiLongtitude, setMentiLongtitude] = useState(131);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (pos) {
