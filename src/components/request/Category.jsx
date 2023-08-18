@@ -26,7 +26,6 @@ function Category({firstCategory, secondCategory}){
                 <div>{firstCategory}</div>
                 <div>{secondCategory}</div>
             </div>
-
         </>
     );
 }
