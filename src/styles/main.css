@@ -160,3 +160,26 @@ nav > div {
     flex-direction: column;
     top: 0;
 }
+
+/* first img*/
+
+.first-img {
+    height: 900px;
+    width: 479px;
+    z-index: -1;
+    position: relative;
+}
+
+/*login*/
+.btn-login {
+    background: #089885;
+    width: 339px;
+    height: 55px;
+    border-radius: 30px;
+    color: white;
+    margin-left: 70px;
+    border: none;
+    margin-top: -30px;
+    z-index: 1;
+    position: absolute;
+}
