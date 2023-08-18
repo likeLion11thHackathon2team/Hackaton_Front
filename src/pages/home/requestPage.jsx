@@ -33,8 +33,8 @@ const RequestPage = () => {
   const router = useRouter();
 
   // 멘티 위도 경도 백으로 보내기
-  const [mentiLatitude, setMentiLatitude] = useState(13);
-  const [mentiLongtitude, setMentiLongtitude] = useState(131);
+  const [mentiLatitude, setMentiLatitude] = useState(12);
+  const [mentiLongtitude, setMentiLongtitude] = useState(12);
   const onClick = (id) => {
     router.push(
       {
