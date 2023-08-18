@@ -1,185 +1,182 @@
 .main1 {
-    display: flex;
-    justify-content: center;
-    margin-top: 200px;
-    gap: 50px;
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  gap: 50px;
 }
 
 .main2 {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    gap: 50px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 50px;
 }
 
 .btn {
-    width: 147px;
-    height: 147px;
-    border-radius: 40px;
-    border-style: solid;
-    border-width: 2px;
+  width: 147px;
+  height: 147px;
+  border-radius: 40px;
+  border-style: solid;
+  border-width: 2px;
 }
 
 .btn-order {
-    background: #A7D1CC;
+  background: #a7d1cc;
 }
 
 .btn-phone {
-    background: #C2ECE7;
+  background: #c2ece7;
 }
 
 .btn-computer {
-
-    background: #66C9BC;
+  background: #66c9bc;
 }
 
 .btn-etc {
-    background: #3C9E91;
+  background: #3c9e91;
 }
 
 .home_text {
-    display: flex;
-    justify-content: center;
-    gap: 150px;
-    margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  margin-top: 5px;
 }
 
 .home_img {
-    z-index: 1;
+  z-index: 1;
 }
 
 /* content */
 
 .center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .content-text {
-    margin: 40px;
+  margin: 40px;
 }
 
 .content-box {
-    width: 339px;
-    height: 241px;
-    border-radius: 5px;
-    outline-color: #CACACA;
-    resize: none;
+  width: 339px;
+  height: 241px;
+  border-radius: 5px;
+  outline-color: #cacaca;
+  resize: none;
 }
 
 .btn-request {
-    background: #089885;
-    width: 339px;
-    height: 55px;
-    border-radius: 30px;
-    color: white;
-    margin-top: 100px;
-    border: none;
+  background: #089885;
+  width: 339px;
+  height: 55px;
+  border-radius: 30px;
+  color: white;
+  margin-top: 100px;
+  border: none;
 }
 
 .btn-quit {
-    background: #089885;
-    width: 339px;
-    height: 55px;
-    border-radius: 30px;
-    color: white;
-    margin-left: 70px;
-    margin-top: 700px;
-    border: none;
-    z-index: 1;
-    position: absolute;
+  background: #089885;
+  width: 339px;
+  height: 55px;
+  border-radius: 30px;
+  color: white;
+  margin-left: 70px;
+  margin-top: 700px;
+  border: none;
+  z-index: 1;
+  position: absolute;
 }
 
 /* find */
 
 .find-word {
-    position: absolute;
-    margin-top: 440px;
-    margin-left: 125px;
+  position: absolute;
+  margin-top: 440px;
+  margin-left: 125px;
 }
 
 .find-background {
-    position: relative;
-    z-index: -1;
-    width: 479px;
+  position: relative;
+  z-index: -1;
+  width: 479px;
 }
 
 /*하단 bar*/
 
 nav {
-    overflow: hidden;
-    border-top: 2px solid grey;
+  overflow: hidden;
+  border-top: 2px solid grey;
 }
 
 nav > div {
-    text-align: center;
-    float: left;
-    width: 33%;
-    height: 60px;
-    line-height: 90px;
-}
-
-.wrapper {
-    margin-top: 180px;
+  text-align: center;
+  float: left;
+  width: 33%;
+  height: 60px;
+  line-height: 90px;
 }
 
 .img-wrapper {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .nav-item {
-    filter: invert(64%) sepia(3%) saturate(16%) hue-rotate(15deg) brightness(95%) contrast(80%);
+  filter: invert(64%) sepia(3%) saturate(16%) hue-rotate(15deg) brightness(95%)
+    contrast(80%);
 }
 
 .active {
-    filter: invert(53%) sepia(46%) saturate(494%) hue-rotate(123deg) brightness(92%) contrast(87%);
+  filter: invert(53%) sepia(46%) saturate(494%) hue-rotate(123deg)
+    brightness(92%) contrast(87%);
 }
 
 .nav-word {
-    width: 33%;
-    height: 11px;
-    line-height: 90px;
+  width: 33%;
+  height: 11px;
+  line-height: 90px;
 }
 
 /*header*/
 
 .logo {
-    margin-left: 24px;
-    margin-top: 28px;
-    display: flex;
-    flex-direction: column;
-    top: 0;
-    left: 0;
+  margin-left: 24px;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
 }
 
 .profile {
-    margin-top: -30px;
-    margin-left: 400px;
-    display: flex;
-    flex-direction: column;
-    top: 0;
+  margin-top: -30px;
+  margin-left: 400px;
+  display: flex;
+  flex-direction: column;
+  top: 0;
 }
 
 /* first img*/
 
 .first-img {
-    height: 900px;
-    width: 479px;
-    z-index: -1;
-    position: relative;
+  height: 900px;
+  width: 479px;
+  z-index: -1;
+  position: relative;
 }
 
 /*login*/
 .btn-login {
-    background: #089885;
-    width: 339px;
-    height: 55px;
-    border-radius: 30px;
-    color: white;
-    margin-left: 70px;
-    border: none;
-    margin-top: -30px;
-    z-index: 1;
-    position: absolute;
+  background: #089885;
+  width: 339px;
+  height: 55px;
+  border-radius: 30px;
+  color: white;
+  margin-left: 70px;
+  border: none;
+  margin-top: -30px;
+  z-index: 1;
+  position: absolute;
 }
