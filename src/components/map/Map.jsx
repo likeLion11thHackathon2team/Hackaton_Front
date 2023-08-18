@@ -16,8 +16,8 @@ export default function Map({ mentoList, mentiList, mapWidth, mapHeight }) {
         const container = document.getElementById("map");
         const options = {
           center: new window.kakao.maps.LatLng(
-            mentiList[0].latitude,
-            mentiList[0].longitude
+            mentiList[0]?.latitude,
+            mentiList[0]?.longitude
           ), // 초기 중심 좌표 (위도, 경도)
           level: 3, // 지도 확대 레벨
         };

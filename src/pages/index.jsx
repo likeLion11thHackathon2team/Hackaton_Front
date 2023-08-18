@@ -24,7 +24,7 @@ const index = () => {
           </button>
           <button
             onClick={() => {
-              window.location.href = "/home/requestDetail/requestPage";
+              window.location.href = "/home/requestPage";
             }}
             className="btn-login"
           >

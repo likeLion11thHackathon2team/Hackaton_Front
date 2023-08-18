@@ -23,36 +23,36 @@ const RequestPage = () => {
   };
 
   // RequestList Mock Data
-  // const list = [
-  //   {
-  //     category: "주문기기",
-  //     mentiName: "이경지",
-  //     distance: 1.2,
-  //     acceptTime: "2023-08-15T18:52:50.637635",
-  //     mentiLatitude: 12.123,
-  //     mentiLongitude: 12.123,
-  //     content:
-  //       "무인 카페에 기계 하나만 덩그러니 놓여있어요. 어떻게 사용하는지 모르겠이요.",
-  //   },
-  //   {
-  //     category: "휴대폰",
-  //     mentiName: "김멋사",
-  //     distance: 0.9,
-  //     acceptTime: "2023-08-15T18:54:52.637635",
-  //     mentiLatitude: 12.123,
-  //     mentiLongitude: 12.123,
-  //     content: "모바일 은행 서비스를 어떻게 사용하는지 모르겠어요.",
-  //   },
-  //   {
-  //     category: "컴퓨터",
-  //     mentiName: "홍길동",
-  //     distance: 1,
-  //     acceptTime: "2023-08-15T18:56:55.637635",
-  //     mentiLatitude: 12.123,
-  //     mentiLongitude: 12.123,
-  //     content: "백신을 어떻게 깔아야 하는지 모르겠어요.",
-  //   },
-  // ];
+  const mockList = [
+    {
+      category: "주문기기",
+      mentiName: "이경지",
+      distance: 1.2,
+      acceptTime: "2023-08-15T18:52:50.637635",
+      mentiLatitude: 12.123,
+      mentiLongitude: 12.123,
+      content:
+        "무인 카페에 기계 하나만 덩그러니 놓여있어요. 어떻게 사용하는지 모르겠이요.",
+    },
+    {
+      category: "휴대폰",
+      mentiName: "김멋사",
+      distance: 0.9,
+      acceptTime: "2023-08-15T18:54:52.637635",
+      mentiLatitude: 12.123,
+      mentiLongitude: 12.123,
+      content: "모바일 은행 서비스를 어떻게 사용하는지 모르겠어요.",
+    },
+    {
+      category: "컴퓨터",
+      mentiName: "홍길동",
+      distance: 1,
+      acceptTime: "2023-08-15T18:56:55.637635",
+      mentiLatitude: 12.123,
+      mentiLongitude: 12.123,
+      content: "백신을 어떻게 깔아야 하는지 모르겠어요.",
+    },
+  ];
 
   // 리퀘스트 리스트 리스트 백에서 받기
   const [list, setList] = useState(null);
@@ -69,12 +69,17 @@ const RequestPage = () => {
       .catch((error) => {
         return error;
       });
-    const _list = JSON.parse(JSON.stringify(response.list));
 
-    _list?.forEach((item, i) => {
-      item.id = i;
-    });
-    setList(_list);
+    if (response.status === 200 || response.status === 201) {
+      const _list = JSON.parse(JSON.stringify(response.list));
+
+      _list?.forEach((item, i) => {
+        item.id = i;
+      });
+      setList(_list);
+    } else {
+      setList(mockList);
+    }
   };
 
   useEffect(() => {
@@ -108,7 +113,7 @@ const RequestPage = () => {
   }
 
   useEffect(() => {
-    Connect();
+    // Connect();
   }, []);
 
   return (
