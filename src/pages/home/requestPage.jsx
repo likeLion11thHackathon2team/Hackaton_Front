@@ -96,7 +96,7 @@ const RequestPage = () => {
       });
 
     if (response.status === 200 || response.status === 201) {
-      const _list = JSON.parse(JSON.stringify(response.list));
+      const _list = JSON.parse(JSON.stringify(response.requests));
 
       _list?.forEach((item, i) => {
         item.id = i;
@@ -109,7 +109,7 @@ const RequestPage = () => {
 
   useEffect(() => {
     getList();
-  }, []);
+  }, [router, mentiLatitude, mentiLongtitude]);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (pos) {
@@ -119,7 +119,7 @@ const RequestPage = () => {
       setMentiLongtitude(longitude);
       // console.log("현재 위치는 :" + mentiLatitude + ","+ mentiLongtitude);
     });
-  });
+  }, [router]);
 
   async function Connect() {
     const response = await axios

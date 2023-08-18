@@ -16,7 +16,7 @@ function Content() {
         content: content,
         mentiLatitude: mentiLatitude,
         mentiLongitude: mentiLongtitude,
-        menti: id,
+        menti: id ?? 1,
       })
       .then((response) => {
         window.location.href = `/request/find?request=${id}`;
