@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Request = ({ category, mentiName, dist, content }) => {
+const Request = ({ category, mentiName, distance, content }) => {
   return (
     <>
       <RequestDiv>
@@ -10,7 +10,7 @@ const Request = ({ category, mentiName, dist, content }) => {
           </div>
           <div className="title__subinfo">
             <span>
-              {mentiName}, {dist} KM
+              {mentiName}, {distance} KM
             </span>
           </div>
         </div>

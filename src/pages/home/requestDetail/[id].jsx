@@ -63,36 +63,36 @@ const requestDetail = () => {
     },
   ];
 
-  const requestId = router.query.id;
-  // console.log(requestId);
+  const id = Number(router.query.id);
+  console.log(id);
 
   // 멘토 리스트 Mock Data
-  const mentoList = [
-    {
-      title: "멘토",
-      latitude: 33.450705,
-      longitude: 126.570677,
-    },
-    {
-      title: "멘토",
-      latitude: 33.450936,
-      longitude: 126.569477,
-    },
-  ];
+  // const mentoList = [
+  //   {
+  //     title: "멘토",
+  //     latitude: 33.450705,
+  //     longitude: 126.570677,
+  //   },
+  //   {
+  //     title: "멘토",
+  //     latitude: 33.450936,
+  //     longitude: 126.569477,
+  //   },
+  // ];
 
-  // 멘티 리스트 Mock Data
-  const mentiList = [
-    {
-      title: "멘티",
-      latitude: 33.450879,
-      longitude: 126.56994,
-    },
-    {
-      title: "멘티",
-      latitude: 33.451393,
-      longitude: 126.570738,
-    },
-  ];
+  // // 멘티 리스트 Mock Data
+  // const mentiList = [
+  //   {
+  //     title: "멘티",
+  //     latitude: 33.450879,
+  //     longitude: 126.56994,
+  //   },
+  //   {
+  //     title: "멘티",
+  //     latitude: 33.451393,
+  //     longitude: 126.570738,
+  //   },
+  // ];
 
   // 멘토 위도 경도 백으로 보내기
   const [mentoLatitude, setMentoLatitude] = useState("");
@@ -128,33 +128,37 @@ const requestDetail = () => {
     Connect();
   }, []);
 
-  // const mentoList = [];
+  const [mentoList, setMentoList] = useState([]);
 
-  // mentoList.push({
-  //   title: "멘토",
-  //   latitude: mentoLatitude,
-  //   longitude: mentoLongitude,
-  // });
+  useEffect(() => {
+    mentoList.push({
+      title: "멘토",
+      latitude: mentoLatitude,
+      longitude: mentoLongitude,
+    });
+  }, [mentoList]);
 
-  // const mentiList = [];
+  const [mentiList, setMentiList] = useState([]);
 
-  // mentiList.push({
-  //   title: "멘티",
-  //   latitude: list[id].mentiLatitude,
-  //   longitude: list[id].mentiLongitude,
-  // });
+  useEffect(() => {
+    mentiList.push({
+      title: "멘티",
+      latitude: list[id]?.mentiLatitude,
+      longitude: list[id]?.mentiLongitude,
+    });
+  }, [mentiList]);
 
   return (
     <>
       <div>
         {router.query.id && (
           <Request
-            key={list[requestId].id}
-            category={list[requestId].category}
-            mentiName={list[requestId].mentiName}
-            dist={list[requestId].dist}
-            content={list[requestId].content}
-            onClick={() => onClick(list[requestId].id)}
+            key={list[id].id}
+            category={list[id].category}
+            mentiName={list[id].mentiName}
+            dist={list[id].dist}
+            content={list[id].content}
+            onClick={() => onClick(list[id].id)}
           ></Request>
         )}
       </div>

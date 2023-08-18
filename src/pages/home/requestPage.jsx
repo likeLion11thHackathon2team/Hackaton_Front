@@ -120,7 +120,7 @@ const RequestPage = () => {
               key={item.id}
               category={item.category}
               mentiName={item.mentiName}
-              dist={item.dist}
+              distance={item.distance}
               content={item.content}
             />
           </div>
