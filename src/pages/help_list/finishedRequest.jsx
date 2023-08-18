@@ -58,6 +58,7 @@ const RequestDiv = styled.div`
     display: flex;
     justify-content: end;
     margin: 5px;
+    color: #089885;
   }
 `;
 

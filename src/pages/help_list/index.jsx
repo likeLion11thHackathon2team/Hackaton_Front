@@ -3,6 +3,26 @@ import React from "react";
 import styled from "styled-components";
 
 const RequestPage = () => {
+  // 리퀘스트 리스트 리스트 백에서 받기
+  // const [userId, setUserId] = useState(0); // 사용자 ID 가져와야함
+  // const [list, setList] = useState(null);
+
+  // const getList = async () => {
+  //   const response = await axios
+  //     .get("/requests/record/${userId}/")
+  //     .then((response) => {
+  //       return response.data;
+  //     })
+  //     .catch((error) => {
+  //       return error;
+  //     });
+  //   setList(response.list);
+  // };
+
+  // useEffect(() => {
+  //   getList();
+  // }, []);
+
   const RequestList = [
     {
       id: 1,

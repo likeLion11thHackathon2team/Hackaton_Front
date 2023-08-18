@@ -24,7 +24,7 @@ const RequestDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 450px;
-  height: 15vh;
+  height: 120px;
   margin: 10px 10px 10px 10px;
   padding: 10px 10px 5px 10px;
   background-color: #f5f5f5;
