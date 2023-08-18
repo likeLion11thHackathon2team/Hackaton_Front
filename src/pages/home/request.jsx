@@ -1,15 +1,21 @@
+import styled from "styled-components";
+
 const Request = ({ category, mentiName, dist, content }) => {
   return (
     <>
-      <div>
+      <RequestDiv>
         <span>{category}</span>
         <span>
           {mentiName}, {dist} KM
         </span>
-      </div>
+      </RequestDiv>
       <div>{content}</div>
     </>
   );
 };
+
+const RequestDiv = styled.div`
+  display: flex;
+`;
 
 export default Request;

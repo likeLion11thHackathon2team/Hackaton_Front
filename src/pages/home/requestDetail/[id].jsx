@@ -1,6 +1,7 @@
-import Map from "@/components/Map";
+import Map from "@/components/map/Map";
 import { useRouter } from "next/router";
 import Request from "../request";
+// import styled from "styled-components";
 
 const requestDetail = () => {
   const router = useRouter();

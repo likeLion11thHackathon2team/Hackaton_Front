@@ -56,8 +56,7 @@ export default function Map({ mentoList, mentiList, mapWidth, mapHeight }) {
         });
 
         // 마커 이미지의 이미지 주소입니다
-        const imageSrc =
-          "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+        const imageSrc = "/map/marker.png";
 
         for (let i = 0; i < positions.length; i++) {
           // 마커 이미지의 이미지 크기 입니다
