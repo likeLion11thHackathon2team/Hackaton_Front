@@ -9,7 +9,7 @@ function BottomBar() {
             <nav className="wrapper">
                 <div onClick={() => {
                     setActiveNav(1);
-                    window.location.href="request";
+                    window.location.href="/request";
                 }}>
                     <img 
                         src="/requestimg/bar_circle.svg"
@@ -18,7 +18,7 @@ function BottomBar() {
                 </div>
                 <div onClick={() => {
                     setActiveNav(2);
-                    window.location.href="";
+                    window.location.href="/help_list";
                 }}>
                     <img 
                         src="/requestimg/bar_star.svg"
@@ -27,7 +27,7 @@ function BottomBar() {
                 </div>
                 <div onClick={() => {
                     setActiveNav(3);
-                    window.location.href="";
+                    window.location.href="/mypage";
                 }}>
                     <img
                         src="/requestimg/bar_box.svg"

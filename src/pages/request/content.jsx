@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import useGeolocation from "react-hook-geolocation";
 
 function Content() {
     const router = useRouter();
@@ -9,28 +8,19 @@ function Content() {
     const geolocation = useGeolocation();
     const [mentiLatitude, setMentiLatitude] = useState('')
     const [mentiLongtitude, setMentiLongtitude] = useState('');
+    const id = localStorage.getItem("userId");
 
     async function Connect() {
-        const response = await axios.post('http://172.30.1.7:8000/requests/menti/',{
-            category: '주문기기',
+        const response = await axios.post('http://192.168.160.83/requests/menti/',{
+            category: router.query.category,
             content: content,
             mentiLatitude: mentiLatitude,
             mentiLongitude: mentiLongtitude,
-            menti: 1,
+            menti: id,
         })
         .then((response) => {
-            return response.data;
-        })
-        .catch((error) => {
-            return error;
-        });
-    }
-
-    async function ConnectQuit() {
-        const response = await axios.delete('/requests/id',{
-            id: 1,
-        })
-        .then((response) => {
+            window.location.href=`/request/find?request=${id}`;
+            // router.push()
             return response.data;
         })
         .catch((error) => {
@@ -59,13 +49,8 @@ function Content() {
             />
             <button onClick={()=>{
                 Connect();
-                setContent(content);
-                window.location.href="find";
+                // setContent(content);
                 }} className="btn-request">도움 요청하기</button>
-            <button onClick={()=>{
-                ConnectQuit();
-                alert("요청이 취소되었습니다.")
-                }} className="btn-quit">요청 취소하기</button>
         </div>
     );
 }
