@@ -84,7 +84,7 @@ const RequestPage = () => {
 
   const getList = async () => {
     const response = await axios
-      .post(`${process.env.NEXT_PUBLIC_API}request/mento/`, {
+      .post(`${process.env.NEXT_PUBLIC_API}requests/mento/`, {
         mentoLatitude: mentiLatitude,
         mentoLongitude: mentiLongtitude,
       })
