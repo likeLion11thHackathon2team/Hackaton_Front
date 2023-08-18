@@ -7,6 +7,7 @@ const Input = ({
   register,
   label = null,
   height = null,
+  type = null,
 }) => {
   return (
     <>
@@ -14,6 +15,7 @@ const Input = ({
         {label && <div className={"label"}>{label}</div>}
         <input
           placeholder={placeholder}
+          type={type ? type : "text"}
           {...register(`${formId}`, { required: true })}
         />
         {errorMsg && <div className={"error"}>{errorMsg}</div>}
@@ -35,6 +37,7 @@ const Input = ({
           > div.label {
             font-size: 1rem;
             margin-bottom: 0.5rem;
+            color: #635c5c;
           }
 
           > div.error {
