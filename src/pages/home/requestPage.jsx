@@ -4,6 +4,31 @@ import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
+const RequestPageDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+
+  .page-title {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+    font-size: 30px;
+    font-style: bold;
+
+    .request-count {
+      color: #089885;
+    }
+  }
+
+  .request-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
 const RequestPage = () => {
   const router = useRouter();
 
@@ -139,32 +164,5 @@ const RequestPage = () => {
     </RequestPageDiv>
   );
 };
-
-// 100vw, 480px*300px
-
-const RequestPageDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-
-  .page-title {
-    display: flex;
-    justify-content: flex-start;
-    margin: 10px;
-    font-size: 30px;
-    font-style: bold;
-
-    .request-count {
-      color: #089885;
-    }
-  }
-
-  .request-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`;
 
 export default RequestPage;

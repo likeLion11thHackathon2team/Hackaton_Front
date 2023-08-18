@@ -9,12 +9,8 @@ export default function App({ Component, pageProps }) {
     <>
       <div className={`app`}>
         <Component {...pageProps} />
-        {!router.isReady || (router.asPath !== "/" && <BottomBar />)}
+        {(!router.isReady || router.asPath !== "/") && <BottomBar />}
       </div>
-      <style jsx>{`
-        div.app {
-        }
-      `}</style>
     </>
   );
 }
