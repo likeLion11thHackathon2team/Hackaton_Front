@@ -1,7 +1,7 @@
 import Input from "@/components/account/Input";
 import RadioGroup from "@/components/form/RadioGroup";
 import Image from "next/image";
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
@@ -11,6 +11,9 @@ const profile = () => {
     handleSubmit,
     formState: { isValid },
   } = useForm();
+
+  const [userId, setUserId] = useState(null);
+  const [defaultUserObj, setDefaultUserObj] = useState(null);
 
   const [pickedGender, setPickedGender] = useState(null);
   const [isMento, setIsMento] = useState(null);
@@ -56,11 +59,36 @@ const profile = () => {
         });
 
       if (response.status === "200") {
+        // localStorage.setItem("userId", response.name);
+        localStorage.setItem("userName", data.name);
+        localStorage.setItem("userPhoto", userProfileBinary);
+        localStorage.setItem("isMento", isMento === "mento" ? true : false);
         router.push(`/mypage`);
       }
     },
-    [pickedGender, isMento]
+    [pickedGender, isMento, userProfileBinary]
   );
+
+  const getProfile = useCallback(async () => {
+    const response = await axios
+      .get(`${process.env.NEXT_PUBLIC_API}mypage/profile/${userId}/`)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        return error;
+      });
+
+    setDefaultUserObj(response);
+  }, [userId]);
+
+  useEffect(() => {
+    setUserId(localStorage.getItem("userId") ?? null);
+  }, []);
+
+  useEffect(() => {
+    getProfile();
+  }, [userId]);
 
   return (
     <>

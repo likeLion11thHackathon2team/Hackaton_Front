@@ -18,10 +18,11 @@ const login = () => {
       });
 
     if (response.status === "200" || response.status === "201") {
-      router.push("/mypage");
-      localStorage.setItem("userId", response.name);
-      localStorage.setItem("userName", response.userId);
-      localStorage.setItem("userPhoto", response.photoUrl);
+      router.push("/mypage/profile");
+      localStorage.setItem("userId", response?.name);
+      localStorage.setItem("userName", response?.userId);
+      localStorage.setItem("userPhoto", response?.photoUrl);
+      localStorage.setItem("isMento", response?.isMento);
     } else {
       alert("로그인에 실패했습니다.");
       // setLoginError({

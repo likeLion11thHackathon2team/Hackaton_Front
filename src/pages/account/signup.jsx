@@ -19,7 +19,7 @@ const signupPage = () => {
     console.log(response);
     if (response.status === "200" || response.status === "201") {
       alert("회원가입에 성공했습니다.");
-      router.push(`/mypage/profile`);
+      router.push(`/account/login`);
     } else {
       alert("회원가입에 실패했습니다.");
     }
